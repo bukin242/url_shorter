@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'root#index'
+  resources :urls, only: %i[index new create show] do
+    member do
+      get 'stats'
+    end
+  end
 end
