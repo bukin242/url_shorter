@@ -1,0 +1,11 @@
+<h1>Url</h1>
+<% if @url.errors.present? %>
+  <% @url.errors.messages.each do |k, v| %>
+    <%= k %> <%= v %>
+  <% end %>
+<% else %>
+Ваш url: <a href="http://<%= request.host_with_port %><%= url_path(@url.short_hash) %>" target="_blank">http://<%= request.host_with_port %><%= url_path(@url.short_hash) %></a>
+<br />
+<br />
+<a href="http://<%= request.host_with_port %><%= stats_url_path(@url.short_hash) %>" target="_blank">Статистика</a>
+<% end %>
